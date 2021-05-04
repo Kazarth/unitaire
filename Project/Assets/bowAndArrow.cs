@@ -61,7 +61,6 @@ public class bowAndArrow : MonoBehaviour {
 	public GameStates gameState = GameStates.menu;
 
 	// references to main objects for the UI screens
-
 	public Canvas highscoreCanvas;
 	public Canvas gameCanvas;
 	public Canvas gameOverCanvas;
