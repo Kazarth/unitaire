@@ -11,14 +11,7 @@ public class MovePlayer : MonoBehaviour
 
     public CharacterController controller;  // new
 
-    public float speed = 6f;  // new
-    public float turnSmoothTime = 0.1f;
-
-    float turnSmoothVelocity;
-
-
-
-
+  
     // Update is called once per frame
     void Update()
     {
