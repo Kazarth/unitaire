@@ -1019,3 +1019,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 20, y: 310, z: 0}
+--- !u!114 &2103351341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103351338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be7f9ccc845651b478e455263f5fde89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myLight: {fileID: 0}
+  changeRange: 0
+  rangeSpeed: 1
+  maxRange: 10
+  changeIntensity: 1
+  intensitySpeed: 0.025
+  maxIntensity: 1.5
+  changeColors: 1
+  colorSpeed: 0.025
+  startColor: {r: 0.8773585, g: 0.71189463, b: 0.09518514, a: 0}
+  endColor: {r: 0.8301887, g: 0.05090782, b: 0.05090782, a: 0}
+  startTime: 0
