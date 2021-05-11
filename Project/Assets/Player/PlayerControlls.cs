@@ -33,10 +33,11 @@ public class PlayerControlls : MonoBehaviour
 
 
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
             speed = 0.5f; 
-            anim.SetBool("isAiming", true); 
+            anim.SetBool("isAiming", true);
+            attacking(); 
 
 
         }
@@ -61,11 +62,6 @@ public class PlayerControlls : MonoBehaviour
         {
             anim.SetBool("isRunning", false); 
         }
-
-
-
-
-
     }
 
 
@@ -76,12 +72,28 @@ public class PlayerControlls : MonoBehaviour
 
 
 
-    public void attacking ()
+    public void attacking()
     {
 
+        int power = 1;
+        print(power);
 
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            anim.SetBool("isReleased", true);
+
+        }
+
+        
     }
 
 
+
+
+        public void shootArrow(int power)
+        {
+            // pew pew 
+        }
 
 }
