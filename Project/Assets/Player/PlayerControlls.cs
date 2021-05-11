@@ -35,17 +35,30 @@ public class PlayerControlls : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            speed = 0.5f; 
+            speed = 0.5f;
             anim.SetBool("isAiming", true);
-            attacking(); 
-
+            //     attacking();
 
         }
 
 
+        if (Input.GetMouseButtonUp(0))
+        {
+            print("release");
+            anim.SetBool("isAiming", false);
+            // anim.SetBool("isAiming", false);
+        }
 
-        ///attacking?1
-        if (Input.GetKey(KeyCode.W))
+        if (! Input.GetMouseButton(0))
+        {
+                anim.SetBool("isAiming", false); 
+        }
+        
+
+
+
+            ///attacking?1
+            if (Input.GetKey(KeyCode.W))
         {
 
             speed = 4; 
@@ -67,26 +80,6 @@ public class PlayerControlls : MonoBehaviour
 
 
 
-
-
-
-
-
-    public void attacking()
-    {
-
-        int power = 1;
-        print(power);
-
-
-        if (Input.GetMouseButtonUp(0))
-        {
-            anim.SetBool("isReleased", true);
-
-        }
-
-        
-    }
 
 
 
