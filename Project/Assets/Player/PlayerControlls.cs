@@ -57,7 +57,6 @@ public class PlayerControlls : MonoBehaviour
 
 
 
-            ///attacking?1
             if (Input.GetKey(KeyCode.W))
         {
 
