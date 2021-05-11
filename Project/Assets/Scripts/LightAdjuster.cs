@@ -14,12 +14,12 @@ public class LightAdjuster : MonoBehaviour
 
     //Intensity variables
     public bool changeIntensity = false;
-    public float intensitySpeed = 1.0f;
-    public float maxIntensity = 10.0f;
+    public float intensitySpeed = 0.025f;
+    public float maxIntensity = 1.5f;
 
     //Color variables
     public bool changeColors = false;
-    public float colorSpeed =1.0f;
+    public float colorSpeed = 0.025f;
     public Color startColor;
     public Color endColor;
 
@@ -45,7 +45,7 @@ public class LightAdjuster : MonoBehaviour
         }
 
         if(changeColors){
-            float t = (Mathf.Sin(Time.time - startTime * colorSpeed));
+            float t = (Mathf.Sin((Time.time - startTime) * colorSpeed));
             myLight.color = Color.Lerp(startColor, endColor, t);
         }
     }
