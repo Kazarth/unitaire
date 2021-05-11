@@ -12,9 +12,18 @@ public class PlayerControlls : MonoBehaviour
 
 
 
+    private float timeRemaining = 3;
+    private bool isBowDrawn;
+   
+
+
+
+
+
     void Start()
     {
-        anim = GetComponent<Animator>(); 
+        anim = GetComponent<Animator>();
+        isBowDrawn = false; 
         
     }
 
@@ -33,18 +42,50 @@ public class PlayerControlls : MonoBehaviour
 
 
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
-            speed = 0.5f; 
-            anim.SetBool("isAiming", true); 
+            speed = 0.5f;
+            anim.SetBool("isAiming", true);
+            print(timeRemaining);
+
+            if (isBowDrawn == true)
+            {
+                if (timeRemaining > 3)
+                {
+                    timeRemaining -= Time.deltaTime;
+                }
 
 
+                else
+                {
+                    print("shooooooting");
+                    timeRemaining = 0;
+                    isBowDrawn = false; 
+                }
+
+             
+
+            }
         }
 
 
+        if (Input.GetMouseButtonUp(0))
+        {
+          //  print("release");
+            anim.SetBool("isAiming", false);
+            // anim.SetBool("isAiming", false);
+        }
 
-        ///attacking?1
-        if (Input.GetKey(KeyCode.W))
+        if (! Input.GetMouseButton(0))
+        {
+                anim.SetBool("isAiming", false);
+
+        }
+        
+
+
+
+            if (Input.GetKey(KeyCode.W))
         {
 
             speed = 4; 
@@ -61,11 +102,6 @@ public class PlayerControlls : MonoBehaviour
         {
             anim.SetBool("isRunning", false); 
         }
-
-
-
-
-
     }
 
 
@@ -75,13 +111,9 @@ public class PlayerControlls : MonoBehaviour
 
 
 
-
-    public void attacking ()
-    {
-
-
-    }
-
-
+        public void shootArrow(int power)
+        {
+            // pew pew 
+        }
 
 }
