@@ -20,7 +20,7 @@ public class LightRotation : MonoBehaviour
     void Update()
     {
         if(changeRoatation){
-            myLight.transform.localEulerAngles = new Vector3(Rotation(), 180, 0);
+            myLight.transform.localEulerAngles = new Vector3(Rotation(), 215, 0);
         }
     }
         float Rotation()
