@@ -12,9 +12,18 @@ public class PlayerControlls : MonoBehaviour
 
 
 
+    private float timeRemaining = 3;
+    private bool isBowDrawn;
+   
+
+
+
+
+
     void Start()
     {
-        anim = GetComponent<Animator>(); 
+        anim = GetComponent<Animator>();
+        isBowDrawn = false; 
         
     }
 
@@ -37,6 +46,8 @@ public class PlayerControlls : MonoBehaviour
         {
             speed = 0.5f;
             anim.SetBool("isAiming", true);
+     
+           
             //     attacking();
 
         }
@@ -51,7 +62,23 @@ public class PlayerControlls : MonoBehaviour
 
         if (! Input.GetMouseButton(0))
         {
-                anim.SetBool("isAiming", false); 
+                anim.SetBool("isAiming", false);
+
+
+            if (isBowDrawn == true)
+            {
+                if (timeRemaining > 3)
+                {
+                    timeRemaining -= Time.deltaTime; 
+                }
+
+                else
+                {
+                    print("shooooooting");  
+                }
+
+            }
+
         }
         
 
