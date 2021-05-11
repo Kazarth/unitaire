@@ -7,7 +7,7 @@ public class PlayerControlls : MonoBehaviour
 
 
     static Animator anim;
-    public float speed = 0.5f;
+    public float speed = 0; 
     public float rotationSpeed = 100.0f;
 
 
@@ -22,8 +22,8 @@ public class PlayerControlls : MonoBehaviour
     void Update()
     {
 
-
-        float translation = Input.GetAxis("Vertical")  * speed;
+        float translation = Input.GetAxis("Vertical") * speed;
+       // print(translation);
         float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
         translation *= Time.deltaTime;
         rotation *= Time.deltaTime;
@@ -31,13 +31,26 @@ public class PlayerControlls : MonoBehaviour
         transform.Rotate(0, rotation, 0);
 
 
+
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            speed = 0.5f; 
+            anim.SetBool("isAiming", true); 
+
+
+        }
+
+
+
         ///attacking?1
         if (Input.GetKey(KeyCode.W))
         {
+
+            speed = 4; 
             anim.SetTrigger("isRunning");
             anim.SetBool("isIdle", false);  // WHne attacking, take em out from the current state.
-          
-     
+         
         }
 
         if (translation != 0)
@@ -48,5 +61,27 @@ public class PlayerControlls : MonoBehaviour
         {
             anim.SetBool("isRunning", false); 
         }
+
+
+
+
+
     }
+
+
+
+
+
+
+
+
+
+    public void attacking ()
+    {
+
+
+    }
+
+
+
 }
