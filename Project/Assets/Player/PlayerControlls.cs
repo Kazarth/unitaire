@@ -72,8 +72,9 @@ public class PlayerControlls : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
           //  print("release");
-            anim.SetBool("isAiming", false);
+            //anim.SetBool("isAiming", false);
             // anim.SetBool("isAiming", false);
+            print("Shooting"); 
         }
 
         if (! Input.GetMouseButton(0))
