@@ -13,7 +13,7 @@ public class zombieMovement : MonoBehaviour
     private void Start()
     {
         m_agent = GetComponent<NavMeshAgent>();
-        m_target = GameObject.FindGameObjectWithTag("Finish");
+        m_target = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(UpdateZombie());
     }
 
