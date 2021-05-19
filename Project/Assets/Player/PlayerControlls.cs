@@ -38,40 +38,31 @@ public class PlayerControlls : MonoBehaviour
         {
             speed = 0.5f;
             anim.SetBool("isAiming", true);
-            print(timeRemaining);
-
-            if (isBowDrawn == true)
-            {
-                if (timeRemaining > 3)
-                {
-                    timeRemaining -= Time.deltaTime;
-                }
-
-
-                else
-                {
-                    print("shooooooting");
-                    timeRemaining = 0;
-                    isBowDrawn = false;
-                }
-
-
-
-            }
+      
         }
 
 
+        // Aiming pose 
         if (Input.GetMouseButtonUp(0))
         {
             shootArrow();
+            anim.SetBool("isLoaded", false);
         }
 
 
+        //Idle pose 
         if (!Input.GetMouseButton(0))
         {
             anim.SetBool("isAiming", false);
         }
 
+        // Reload 
+        if (anim.GetBool("isLoaded") == false)
+        {
+            reload();
+            anim.SetBool("isLoaded", true); 
+
+        }
 
 
     }
@@ -110,8 +101,15 @@ public class PlayerControlls : MonoBehaviour
 
     public void shootArrow()
     {
+
         print("pew pew");
-        anim.SetBool("isFiring", true);
+        
+    }
+
+
+    public void reload()
+    {
+
     }
 
 }
