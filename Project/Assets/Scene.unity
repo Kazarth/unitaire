@@ -816,7 +816,7 @@ GameObject:
   - component: {fileID: 369627654}
   - component: {fileID: 369627653}
   m_Layer: 0
-  m_Name: Constraint
+  m_Name: Constraint outer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1642,7 +1642,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 410463ba8bd9a484cb3ab355dc962d1d, type: 3}
       propertyPath: m_Name
-      value: kitchen_chair_2 (1)
+      value: Chair 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 410463ba8bd9a484cb3ab355dc962d1d, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2073,7 +2073,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100016, guid: 76f69c2044293fc40a066ff85ecb70df, type: 3}
       propertyPath: m_Name
-      value: sofa_2
+      value: Sofa
       objectReference: {fileID: 0}
     - target: {fileID: 100016, guid: 76f69c2044293fc40a066ff85ecb70df, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3204,7 +3204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2731465206210111506, guid: 4995dd91264436a49863978e55f96784, type: 3}
       propertyPath: m_Name
-      value: SM_cabinet
+      value: Cabinet
       objectReference: {fileID: 0}
     - target: {fileID: 2731465206210111506, guid: 4995dd91264436a49863978e55f96784, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3807,7 +3807,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 103752, guid: 97ad11e47dbea4c4baa376e584519266, type: 3}
       propertyPath: m_Name
-      value: log01 (7)
+      value: Log upper
       objectReference: {fileID: 0}
     - target: {fileID: 103752, guid: 97ad11e47dbea4c4baa376e584519266, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4016,7 +4016,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 410463ba8bd9a484cb3ab355dc962d1d, type: 3}
       propertyPath: m_Name
-      value: kitchen_chair_2
+      value: Chair 2
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 410463ba8bd9a484cb3ab355dc962d1d, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4226,7 +4226,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 103752, guid: 97ad11e47dbea4c4baa376e584519266, type: 3}
       propertyPath: m_Name
-      value: log01 (6)
+      value: Log lower
       objectReference: {fileID: 0}
     - target: {fileID: 103752, guid: 97ad11e47dbea4c4baa376e584519266, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4397,7 +4397,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1026669413012722, guid: 57d3e693aabffc0469483a7ea0e6d1e5, type: 3}
       propertyPath: m_Name
-      value: Table01v2 (1)
+      value: Table
       objectReference: {fileID: 0}
     - target: {fileID: 1026669413012722, guid: 57d3e693aabffc0469483a7ea0e6d1e5, type: 3}
       propertyPath: m_StaticEditorFlags
