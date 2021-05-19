@@ -1680,7 +1680,7 @@ GameObject:
   - component: {fileID: 6121158551557577353}
   m_Layer: 0
   m_Name: Zombie1
-  m_TagString: Untagged
+  m_TagString: EnemyZombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1743,7 +1743,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2
+  m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1767,9 +1767,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &5471841782626736367
 CapsuleCollider:
@@ -1797,6 +1797,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dbd094e93a894f7a9ed0969b77dedf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  healthPool: 100
+  currentCollisionCount: 0
 --- !u!1 &4710940672626480558
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,11 +10,18 @@ public class zombieMovement : MonoBehaviour
     private GameObject m_target;
     private float m_updateTime = 0.2f;
 
+    public Animator animator;
+
+    public float healthPool = 100;
+    public float currentCollisionCount = 0;
+    private float attackMultiplier = 0;
+
     private void Start()
     {
         m_agent = GetComponent<NavMeshAgent>();
         m_target = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(UpdateZombie());
+        animator = GetComponent<Animator>();
     }
 
     private void OnDrawGizmos()
@@ -29,6 +36,17 @@ public class zombieMovement : MonoBehaviour
             {
                 Gizmos.DrawSphere(point, 0.25f);
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider col)
+
+    {
+        if (col.gameObject.tag == "ZombieWall")
+
+        {
+            animator.SetTrigger("AttackTrigger");
+            gameObject.GetComponent<NavMeshAgent>().velocity = Vector3.zero;
         }
     }
 
