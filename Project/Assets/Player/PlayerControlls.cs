@@ -20,7 +20,7 @@ public class PlayerControlls : MonoBehaviour {
 
     //Bow stats
     public float timeBetweenShooting, reloadTime, timeBetweenArrows;
-    public int cougerSize, arrowsPerTap;
+    public int quiverSize, arrowsPerTap;
     public bool allButtonHold;
 
     private int arrowLeft, bulletsShot;
@@ -95,7 +95,7 @@ public class PlayerControlls : MonoBehaviour {
     }
 
     public void Awake() {
-        arrowLeft = cougerSize;
+        arrowLeft = quiverSize;
         readyToshoot = true;
     }
 
@@ -105,12 +105,12 @@ public class PlayerControlls : MonoBehaviour {
         //Firing Arrow
         if (readyToshoot && shooting && !reloading && arrowLeft >= 0) {
             bulletsShot = 0;
-            shootArrow(); 
+            shootArrow();
         }
 
         //Draw new Arrow (auto)
         if (readyToshoot && shooting && !reloading && arrowLeft >= 0) {
-            reload(); 
+            reload();
         }
     }
 
@@ -122,11 +122,12 @@ public class PlayerControlls : MonoBehaviour {
         RaycastHit hit;
 
         Vector3 targetPoint;
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit)) {
             targetPoint = hit.point;
-        else
+        } else {
             targetPoint = ray.GetPoint(200);
-
+				}
+				
         //Calc direction
         Vector3 targetDirection = targetPoint - attackPoint.position;
 
@@ -164,23 +165,17 @@ public class PlayerControlls : MonoBehaviour {
     }
 
     public void ReloadFinished() {
-        arrowLeft = cougerSize;
+        arrowLeft = quiverSize;
         reloading = false; 
     }
 }
 
-/**
- * 
- * 
-    public void terrain()
-    {
-
+/*
+    public void terrain() {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitData;
 
-
-        if (terrainCollider.Raycast(ray, out hitData, 1000))
-        {
+        if (terrainCollider.Raycast(ray, out hitData, 1000)) {
             worldPosition = hitData.point;
         }
     }
