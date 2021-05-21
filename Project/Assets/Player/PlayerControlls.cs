@@ -7,14 +7,14 @@ public class PlayerControlls : MonoBehaviour
 
 
     static Animator anim;
-    public float speed = 0; 
+    public float speed = 0;
     public float rotationSpeed = 100.0f;
 
 
 
     private float timeRemaining = 3;
     private bool isBowDrawn;
-   
+
 
 
 
@@ -23,16 +23,57 @@ public class PlayerControlls : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        isBowDrawn = false; 
-        
+        isBowDrawn = false;
     }
 
-  
+
     void Update()
     {
 
+
+        movement();
+
+
+        if (Input.GetMouseButton(0))
+        {
+            speed = 0.5f;
+            anim.SetBool("isAiming", true);
+      
+        }
+
+
+        // Aiming pose 
+        if (Input.GetMouseButtonUp(0))
+        {
+            shootArrow();
+            anim.SetBool("isLoaded", false);
+        }
+
+
+        //Idle pose 
+        if (!Input.GetMouseButton(0))
+        {
+            anim.SetBool("isAiming", false);
+        }
+
+        // Reload 
+        if (anim.GetBool("isLoaded") == false)
+        {
+            reload();
+            anim.SetBool("isLoaded", true); 
+
+        }
+
+
+    }
+
+
+
+
+
+    public void movement()
+    {
         float translation = Input.GetAxis("Vertical") * speed;
-       // print(translation);
         float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
         translation *= Time.deltaTime;
         rotation *= Time.deltaTime;
@@ -40,80 +81,35 @@ public class PlayerControlls : MonoBehaviour
         transform.Rotate(0, rotation, 0);
 
 
-
-
-        if (Input.GetMouseButton(0))
+        if (Input.GetKey(KeyCode.W))
         {
-            speed = 0.5f;
-            anim.SetBool("isAiming", true);
-            print(timeRemaining);
-
-            if (isBowDrawn == true)
-            {
-                if (timeRemaining > 3)
-                {
-                    timeRemaining -= Time.deltaTime;
-                }
-
-
-                else
-                {
-                    print("shooooooting");
-                    timeRemaining = 0;
-                    isBowDrawn = false; 
-                }
-
-             
-
-            }
-        }
-
-
-        if (Input.GetMouseButtonUp(0))
-        {
-          //  print("release");
-            anim.SetBool("isAiming", false);
-            // anim.SetBool("isAiming", false);
-        }
-
-        if (! Input.GetMouseButton(0))
-        {
-                anim.SetBool("isAiming", false);
-
-        }
-        
-
-
-
-            if (Input.GetKey(KeyCode.W))
-        {
-
-            speed = 4; 
-            anim.SetTrigger("isRunning");
+            speed = 4;
             anim.SetBool("isIdle", false);  // WHne attacking, take em out from the current state.
-         
+
         }
 
         if (translation != 0)
         {
-            anim.SetBool("isRunning", true); 
+            anim.SetBool("isRunning", true);
         }
         else
         {
-            anim.SetBool("isRunning", false); 
+            anim.SetBool("isRunning", false);
         }
     }
 
 
+    public void shootArrow()
+    {
+
+        print("pew pew");
+        
+    }
 
 
+    public void reload()
+    {
 
-
-
-
-        public void shootArrow(int power)
-        {
-            // pew pew 
-        }
+    }
 
 }
