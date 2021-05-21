@@ -12,14 +12,14 @@ public class Barricade_Animation : MonoBehaviour
     {
 
         currentCollisionCount++;
-        attackMultiplier += 0.5f;
+        attackMultiplier += 0.01f;
     }
 
     private void OnCollisionStay(Collision collision)
     {
 
         healthPool = healthPool - attackMultiplier;
-        if (healthPool == 0)
+        if (healthPool <= 0)
 
         {
             Destroy(GameObject.FindWithTag("Barricade"));

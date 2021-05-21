@@ -10,7 +10,7 @@ public class zombieMovement : MonoBehaviour
     private GameObject m_target;
     private float m_updateTime = 0.2f;
 
-    public Animator animator;
+    private Animator animator;
 
 
 
@@ -44,8 +44,9 @@ public class zombieMovement : MonoBehaviour
 
         {
             animator.SetTrigger("AttackTrigger");
-            gameObject.GetComponent<NavMeshAgent>().velocity = Vector3.zero;
         }
+
+        
     }
 
     IEnumerator UpdateZombie()
@@ -53,8 +54,10 @@ public class zombieMovement : MonoBehaviour
         WaitForSeconds wait = new WaitForSeconds(m_updateTime);
         while (true)
         {
+
             yield return wait;
             m_agent.SetDestination(m_target.transform.position);
+
         }
     }
 }
