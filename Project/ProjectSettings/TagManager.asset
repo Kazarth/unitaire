@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Music
   - MusicAudio
+  - Barricade
+  - ZombieWall
   layers:
   - Default
   - TransparentFX
