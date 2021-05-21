@@ -142,15 +142,15 @@ Rigidbody:
   m_GameObject: {fileID: 38676573}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!65 &38676578
-BoxCollider:
+  m_CollisionDetection: 1
+--- !u!64 &38676578
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -158,10 +158,11 @@ BoxCollider:
   m_GameObject: {fileID: 38676573}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.04613344, y: 0.039952736, z: 0.7504024}
-  m_Center: {x: 0, y: 0.0066587874, z: 0.06959218}
+  m_Enabled: 0
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -173100611939123233, guid: 14738ac67dabd4a078a7d5a1758fe68e, type: 3}
 --- !u!1 &97112308
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,6 +394,36 @@ Transform:
   - {fileID: 1465308668}
   - {fileID: 1524133393}
   m_Father: {fileID: 1863895288}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &185626495
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 185626496}
+  m_Layer: 0
+  m_Name: ArrowStartAttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &185626496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185626495}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.165, z: 0.756}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 962524157}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &256555445 stripped
@@ -6848,6 +6879,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 6401274, guid: 97ad11e47dbea4c4baa376e584519266, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 97ad11e47dbea4c4baa376e584519266, type: 3}
+--- !u!4 &962524157 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4728614624432816492, guid: 14738ac67dabd4a078a7d5a1758fe68e, type: 3}
+  m_PrefabInstance: {fileID: 1045614337}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &971836245
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6951,7 +6987,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 14738ac67dabd4a078a7d5a1758fe68e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 255.43
+      value: 256.874
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 14738ac67dabd4a078a7d5a1758fe68e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7001,6 +7037,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 58c1d904a8e0947798db11b60944e073, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 14738ac67dabd4a078a7d5a1758fe68e, type: 3}
+      propertyPath: m_UpdateMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 14738ac67dabd4a078a7d5a1758fe68e, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 0
@@ -7367,20 +7407,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  rotationSpeed: 100
+  rotationSpeed: 200
   arrow: {fileID: 38676573}
-  shootForce: 100
-  upwardForce: 20
-  timeBetweenShooting: 0.1
-  reloadTime: 0
-  timeBetweenArrows: 0
-  quiverSize: 100
-  arrowsPerTap: 0
-  allButtonHold: 0
+  shootForce: 30
+  upwardForce: 5
+  timeBetweenShooting: 1
+  reloadTime: 1
+  timeBetweenArrows: 1
+  cougerSize: 100
+  arrowsPerTap: 1
+  allButtonHold: 1
   mainCam: {fileID: 881120424}
-  attackPoint: {fileID: 1528868616}
+  attackPoint: {fileID: 185626496}
   ArrowRelease: {fileID: 0}
-  arrowDisp: {fileID: 0}
+  arrowDisp: {fileID: 38676573}
   allowInvoke: 1
 --- !u!195 &1220729991
 NavMeshAgent:
