@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro; 
 
 public class PlayerControlls : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class PlayerControlls : MonoBehaviour
 
     static Animator anim;
     public float speed = 0;
-    public float rotationSpeed = 100.0f;
+    public float rotationSpeed = 200.0f;
     private MousePosition mousePosition;
 
 
@@ -40,7 +41,7 @@ public class PlayerControlls : MonoBehaviour
 
     // Graphics
     public GameObject ArrowRelease;
-    public TextMesh arrowDisp; 
+    public GameObject arrowDisp; 
 
 
 
@@ -105,10 +106,6 @@ public class PlayerControlls : MonoBehaviour
 
         }
 
-
-
-
-
     }
 
 
@@ -158,18 +155,22 @@ public class PlayerControlls : MonoBehaviour
     {
         shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
-        //Draw new Arrow (auto)
-        if (readyToshoot && shooting && !reloading && arrowLeft > 0)
-        {
-
-        }
-
-
-        if (readyToshoot && shooting && !reloading && arrowLeft > 0)
+        //Firing Arrow
+        if (readyToshoot && shooting && !reloading && arrowLeft >= 0)
         {
             bulletsShot = 0;
-            shootArrow();
+            shootArrow(); 
         }
+
+
+        //Draw new Arrow (auto)
+        if (readyToshoot && shooting && !reloading && arrowLeft >= 0)
+        {
+            reload(); 
+        }
+
+
+   
 
     }
 
@@ -179,10 +180,10 @@ public class PlayerControlls : MonoBehaviour
     {
         readyToshoot = false;
 
-        arrowLeft--;
-        bulletsShot++;
+        
 
         Ray ray = mainCam.ScreenPointToRay((Input.mousePosition));
+        //Ray ray = mainCam.ScreenPointToRay(new Vector3(0.5f, 0.5f,0));
         RaycastHit hit;
 
         Vector3 targetPoint;
@@ -190,18 +191,34 @@ public class PlayerControlls : MonoBehaviour
             targetPoint = hit.point;
 
         else
-            targetPoint = ray.GetPoint(50);
+            targetPoint = ray.GetPoint(200);
 
+
+        //Calc direction
         Vector3 targetDirection = targetPoint - attackPoint.position;
 
         //Instantiate arrow
         GameObject currentArrow = Instantiate(arrow, attackPoint.position, Quaternion.identity);
+
+        //Arrow Rotation 
         currentArrow.transform.forward = targetDirection.normalized;
 
 
         //Add force to arrow
-        //currentArrow.GetComponent<Rigidbody>().AddForce(targetDirection.normalized * shootForce, ForceMode.Impulse);
+        currentArrow.GetComponent<Rigidbody>().AddForce(targetDirection.normalized * shootForce, ForceMode.Impulse);
         currentArrow.GetComponent<Rigidbody>().AddForce(mainCam.transform.up * upwardForce, ForceMode.Impulse);
+
+
+        arrowLeft--;
+        bulletsShot++;
+
+
+        if (true)
+        {
+            Instantiate(ArrowRelease, attackPoint.position, Quaternion.identity); 
+        }
+
+
 
         if (allowInvoke)
         {
