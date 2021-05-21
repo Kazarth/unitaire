@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class LightAdjuster : MonoBehaviour
@@ -15,7 +16,7 @@ public class LightAdjuster : MonoBehaviour
     //Intensity variables
     public bool changeIntensity = false;
     public float intensitySpeed = 0.025f;
-    public float maxIntensity = 1.5f;
+    public float maxIntensity = 1f;
 
     //Color variables
     public bool changeColors = false;
