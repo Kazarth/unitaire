@@ -9,6 +9,7 @@ TagManager:
   - Barricade
   - ZombieWall
   - Arrow
+  - Explosion
   layers:
   - Default
   - TransparentFX
