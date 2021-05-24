@@ -8430,13 +8430,13 @@ MonoBehaviour:
   timeBetweenShooting: 1
   reloadTime: 1
   timeBetweenArrows: 1
-  cougerSize: 100
+  quiverSize: 10
   arrowsPerTap: 1
   allButtonHold: 1
   mainCam: {fileID: 881120424}
   attackPoint: {fileID: 185626496}
   ArrowRelease: {fileID: 0}
-  arrowDisp: {fileID: 38676573}
+  arrowDisp: {fileID: 338644042}
   allowInvoke: 1
 --- !u!195 &1220729991
 NavMeshAgent:

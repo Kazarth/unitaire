@@ -25,7 +25,7 @@ public class PlayerControlls : MonoBehaviour
 
     //Bow stats
     public float timeBetweenShooting, reloadTime, timeBetweenArrows;
-    public int cougerSize, arrowsPerTap;
+    public int quiverSize, arrowsPerTap;
     public bool allButtonHold;
 
     private int arrowLeft, bulletsShot;
@@ -41,7 +41,9 @@ public class PlayerControlls : MonoBehaviour
 
     // Graphics
     public GameObject ArrowRelease;
-    public GameObject arrowDisp;
+    public TextMeshProUGUI arrowDisp;
+
+    //Fan, tror ja tog vort updates. 
 
 
     public bool allowInvoke = true;
@@ -65,8 +67,6 @@ public class PlayerControlls : MonoBehaviour
 
         MyInput();
         movement();
-
-
 
 
 
@@ -135,7 +135,7 @@ public class PlayerControlls : MonoBehaviour
     // Start value 
     public void Awake()
     {
-        arrowLeft = cougerSize;
+        arrowLeft = quiverSize;
         readyToshoot = true;
     }
 
@@ -145,6 +145,14 @@ public class PlayerControlls : MonoBehaviour
     // Player Inputs 
     public void MyInput()
     {
+
+        if (arrowDisp != null)
+        {
+            arrowDisp.SetText(arrowLeft / arrowsPerTap + " / " + quiverSize / arrowsPerTap); 
+        }
+
+
+
         shooting = Input.GetKeyUp(KeyCode.Mouse0);
 
         //Firing Arrow
@@ -239,7 +247,7 @@ public class PlayerControlls : MonoBehaviour
 
     public void ReloadFinished()
     {
-        arrowLeft = cougerSize;
+        arrowLeft = quiverSize;
         reloading = false;
     }
 
