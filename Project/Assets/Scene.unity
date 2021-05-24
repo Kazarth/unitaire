@@ -1035,7 +1035,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 369627652}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c82caa5cb688461da74abb075daf866, type: 3}
   m_Name: 
@@ -1043,6 +1043,8 @@ MonoBehaviour:
   healthPool: 100
   currentCollisionCount: 0
   barricadeHealthSlider: {fileID: 72166730}
+  effect: {fileID: 0}
+  showEffect: 0
 --- !u!1 &381674417
 GameObject:
   m_ObjectHideFlags: 0
@@ -1322,13 +1324,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 598683742}
-  m_LocalRotation: {x: 0.034894176, y: -0.0006090816, z: 0.017441817, w: 0.9992386}
-  m_LocalPosition: {x: -4.380005, y: 3.64, z: 6.29}
-  m_LocalScale: {x: 9, y: 1, z: 0.6}
+  m_LocalRotation: {x: 0.034898166, y: -0.00030455244, z: 0.008721242, w: 0.9993528}
+  m_LocalPosition: {x: -4.373, y: 3.447, z: 6.276}
+  m_LocalScale: {x: 9, y: 0.6, z: 0.6}
   m_Children: []
   m_Father: {fileID: 1838285318}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 4, y: 0, z: 2}
+  m_LocalEulerAnglesHint: {x: 4, y: 0, z: 1}
 --- !u!65 &598683744
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1406,6 +1408,8 @@ MonoBehaviour:
   healthPool: 100
   currentCollisionCount: 0
   barricadeHealthSlider: {fileID: 72166730}
+  effect: {fileID: 850777867}
+  showEffect: 0
 --- !u!1 &618088069
 GameObject:
   m_ObjectHideFlags: 0
@@ -6699,7 +6703,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 850777867}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 469.26303, y: 39.516186, z: 257.92578}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -7910,7 +7914,7 @@ MonoBehaviour:
   allButtonHold: 0
   mainCam: {fileID: 881120424}
   attackPoint: {fileID: 1528868616}
-  ArrowRelease: {fileID: 0}
+  ArrowRelease: {fileID: 369627652}
   arrowDisp: {fileID: 0}
   allowInvoke: 1
 --- !u!195 &1220729991
