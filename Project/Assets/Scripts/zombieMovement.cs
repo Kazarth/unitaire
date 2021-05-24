@@ -11,7 +11,8 @@ public class zombieMovement : MonoBehaviour
     private float m_updateTime = 0.2f;
 
     private Animator animator;
-    private generateEnemy enemy;
+
+    public int enemiesKilled = 0;
 
     private void Start()
     {
@@ -48,11 +49,20 @@ public class zombieMovement : MonoBehaviour
         if (col.gameObject.tag == "Arrow")
 
         {
+            enemiesKilled++;
             animator.SetTrigger("ArrowTrigger");
             m_agent.isStopped = true;
             Invoke("destroyZombie", 2);
+            Destroy(col.gameObject);
         }
+
+       else
+        {
+            Destroy(col.gameObject);
+        }
+
     }
+
 
     private void destroyZombie () {
         Destroy(gameObject);
@@ -62,12 +72,17 @@ public class zombieMovement : MonoBehaviour
     IEnumerator UpdateZombie()
     {
         WaitForSeconds wait = new WaitForSeconds(m_updateTime);
-        while (true && gameObject.activeSelf)
+        while (true && m_agent.isStopped == false)
         {
 
             yield return wait;
             m_agent.SetDestination(m_target.transform.position);
 
         }
+    }
+
+    public int getEnemiesKilled ()
+    {
+        return enemiesKilled;
     }
 }
