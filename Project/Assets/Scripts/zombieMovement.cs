@@ -11,12 +11,14 @@ public class zombieMovement : MonoBehaviour
     private float m_updateTime = 0.2f;
 
     private Animator animator;
-
-
+    private scoreUpdate score;
+    private generateEnemy enemy;
 
     private void Start()
     {
         m_agent = GetComponent<NavMeshAgent>();
+        score = GetComponent<scoreUpdate>();
+        enemy = GetComponent<generateEnemy>();
         m_target = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(UpdateZombie());
         animator = GetComponent<Animator>();
@@ -50,10 +52,15 @@ public class zombieMovement : MonoBehaviour
 
         {
             animator.SetTrigger("ArrowTrigger");
-            m_agent.isStopped = true; 
+            m_agent.isStopped = true;
+            score.AddScore();
+            Invoke("destroyZombie", 2);
+            enemy.decrementEnemyCount();
         }
+    }
 
-
+    private void destroyZombie () {
+        Destroy(m_agent);
     }
 
     IEnumerator UpdateZombie()
