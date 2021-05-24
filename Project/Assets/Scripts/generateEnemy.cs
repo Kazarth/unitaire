@@ -19,6 +19,7 @@ public class generateEnemy : MonoBehaviour
      void Start()
 
         {
+            maxEnemies = 10;
             StartCoroutine(generateEnemies());
         }
 
@@ -29,10 +30,17 @@ public class generateEnemy : MonoBehaviour
             {
                 yield return new WaitForSeconds(spawningInterval);
                 enemySpawn();
+
+            if (enemyCounter == maxEnemies - 2)
+            {
+                maxEnemies = maxEnemies + 10;
+                spawningInterval -= 0.1f;
             }
         }
 
-      public void decrementEnemyCount ()
+    }
+
+    public void decrementEnemyCount ()
 
         {
 
@@ -51,13 +59,9 @@ public class generateEnemy : MonoBehaviour
             Vector3 zombieLocation = new Vector3(xPos, yPos, zPos);
             GameObject enemyZombie = Instantiate(zombiePrefab, zombieLocation, Quaternion.Euler(0, 180, 0));
 
-            enemyCounter++;
+   
+        enemyCounter++;
 
-            if (enemyCounter == maxEnemies-2)
-        {
-            maxEnemies =+ 10;
-            spawningInterval -= 0.1f;
-        }
 
-        }
     }
+}
