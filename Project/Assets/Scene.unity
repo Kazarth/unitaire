@@ -160,7 +160,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.5, y: 0.2, z: 1}
   m_Center: {x: 0, y: 0.0066587874, z: 0.06959218}
 --- !u!64 &38676579
 MeshCollider:
@@ -8030,8 +8030,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7195079559084706381, guid: 14738ac67dabd4a078a7d5a1758fe68e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -7195079559084706381, guid: 14738ac67dabd4a078a7d5a1758fe68e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7195079559084706381, guid: 14738ac67dabd4a078a7d5a1758fe68e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.314
+      value: 0.494
       objectReference: {fileID: 0}
     - target: {fileID: -6003174425934081934, guid: 14738ac67dabd4a078a7d5a1758fe68e, type: 3}
       propertyPath: m_IsActive
