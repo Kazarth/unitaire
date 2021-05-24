@@ -4,37 +4,41 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Barricade_Animation : MonoBehaviour {
-  public float healthPool = 100;
+	public float healthPool = 100;
   public float currentCollisionCount = 0;
   private float attackMultiplier = 0;
   [SerializeField] Slider barricadeHealthSlider;
-  [SerializeField] Canvas gameOverCanvas;
+	public GameObject gameOverCanvas;
   [SerializeField] Image image;
-  [SerializeField] GameObject barricadeObject;
+  [SerializeField] GameObject barricadeHUD;
 	public GameObject effect;
-
+	private bool endHandled = false;
+	private float alpha = 0;
+		
 	public void Start() {
 		effect.SetActive(false);
+		gameOverCanvas.SetActive(false);
 	}
 
 	private void Update() {
-    if (healthPool <= 0) {
+		if (healthPool <= 0 && !endHandled) {
+			effect.SetActive(true);
+			
 			GameObject[] barricade = GameObject.FindGameObjectsWithTag("Barricade");
-
 			foreach (GameObject go in barricade) {
 				go.SetActive(false);
 			}
-
-      //Destroy(GameObject.FindWithTag("Barricade"));
-      gameOverCanvas.gameObject.SetActive(true);
-      barricadeObject.SetActive(false);
-
-      for(float i = 0; i <= 1f; i += 0.001f){
-        image.color = new Color(1, 1, 1, i);
-        Debug.Log(i);
-      }
-
-			effect.SetActive(true);
+			
+      barricadeHUD.SetActive(false);
+			gameOverCanvas.SetActive(true);
+			
+			endHandled = true;
+		}
+		
+    if (healthPool <= 0 && alpha < 1f) {
+			alpha += 0.01f;
+			image.color = new Color(1, 1, 1, alpha);
+			Debug.Log(alpha);
     }
 	}
 
