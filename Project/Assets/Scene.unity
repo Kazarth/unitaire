@@ -160,7 +160,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.5, y: 1, z: 1}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.0066587874, z: 0.06959218}
 --- !u!64 &38676579
 MeshCollider:
@@ -8432,13 +8432,13 @@ MonoBehaviour:
   timeBetweenShooting: 1
   reloadTime: 1
   timeBetweenArrows: 1
-  quiverSize: 10
+  quiverSize: 100
   arrowsPerTap: 1
   allButtonHold: 1
   mainCam: {fileID: 881120424}
   attackPoint: {fileID: 185626496}
   ArrowRelease: {fileID: 0}
-  arrowDisp: {fileID: 338644042}
+  arrowDisp: {fileID: 1464666427}
   allowInvoke: 1
 --- !u!195 &1220729991
 NavMeshAgent:
