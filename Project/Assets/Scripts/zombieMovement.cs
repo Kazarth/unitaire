@@ -51,18 +51,18 @@ public class zombieMovement : MonoBehaviour
             animator.SetTrigger("ArrowTrigger");
             m_agent.isStopped = true;
             Invoke("destroyZombie", 2);
-            enemy.decrementEnemyCount();
         }
     }
 
     private void destroyZombie () {
-        Destroy(m_agent);
+        Destroy(gameObject);
+        Destroy(this.m_agent);
     }
 
     IEnumerator UpdateZombie()
     {
         WaitForSeconds wait = new WaitForSeconds(m_updateTime);
-        while (true)
+        while (true && gameObject.activeSelf)
         {
 
             yield return wait;

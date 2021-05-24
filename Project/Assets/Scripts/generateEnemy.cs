@@ -11,9 +11,10 @@ public class generateEnemy : MonoBehaviour
         public int zPos;
         private int xPos;
         private float yPos;
+
         public int enemyCounter;
-
-
+        public int maxEnemies;
+        public float spawningInterval = 3.0f;
 
      void Start()
 
@@ -23,10 +24,10 @@ public class generateEnemy : MonoBehaviour
 
         IEnumerator generateEnemies()
         {
-            while (enemyCounter < 10)
+            while (enemyCounter != maxEnemies)
 
             {
-                yield return new WaitForSeconds(3);
+                yield return new WaitForSeconds(spawningInterval);
                 enemySpawn();
             }
         }
@@ -51,5 +52,12 @@ public class generateEnemy : MonoBehaviour
             GameObject enemyZombie = Instantiate(zombiePrefab, zombieLocation, Quaternion.Euler(0, 180, 0));
 
             enemyCounter++;
+
+            if (enemyCounter == maxEnemies-2)
+        {
+            maxEnemies =+ 10;
+            spawningInterval -= 0.1f;
+        }
+
         }
     }
