@@ -1394,6 +1394,7 @@ MonoBehaviour:
   gameOverCanvas: {fileID: 0}
   image: {fileID: 0}
   barricadeObject: {fileID: 0}
+  effect: {fileID: 0}
 --- !u!1 &381674417
 GameObject:
   m_ObjectHideFlags: 0
@@ -1931,6 +1932,7 @@ MonoBehaviour:
   gameOverCanvas: {fileID: 1762877880}
   image: {fileID: 326079507}
   barricadeObject: {fileID: 440631181}
+  effect: {fileID: 850777867}
 --- !u!1 &618088069
 GameObject:
   m_ObjectHideFlags: 0
