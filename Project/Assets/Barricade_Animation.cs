@@ -29,6 +29,11 @@ public class Barricade_Animation : MonoBehaviour {
 				go.SetActive(false);
 			}
 			
+			GameObject[] constraints = GameObject.FindGameObjectsWithTag("BarricadeConstraint");
+			foreach (GameObject go in constraints) {
+				(go.GetComponent(typeof(Collider)) as Collider).isTrigger = true;
+			}
+			
       barricadeHUD.SetActive(false);
 			gameOverCanvas.SetActive(true);
 			
