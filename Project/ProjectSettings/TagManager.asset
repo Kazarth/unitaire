@@ -8,6 +8,7 @@ TagManager:
   - MusicAudio
   - Barricade
   - ZombieWall
+  - Explosion
   layers:
   - Default
   - TransparentFX

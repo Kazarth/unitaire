@@ -8,6 +8,17 @@ public class Barricade_Animation : MonoBehaviour {
     public float currentCollisionCount = 0;
     private float attackMultiplier = 0;
     [SerializeField] Slider barricadeHealthSlider;
+		private GameObject[] explosion;
+		//private Transform explosion;
+		
+		
+		public void Start() {
+			explosion = GameObject.FindGameObjectsWithTag("Explosion");
+			foreach (GameObject go in explosion) {
+				go.SetActive(false);
+			}
+		}
+		
 
     private void OnCollisionEnter(Collision collision) {
         currentCollisionCount++;
@@ -18,7 +29,18 @@ public class Barricade_Animation : MonoBehaviour {
         healthPool = healthPool - attackMultiplier;
         barricadeHealthSlider.value = healthPool;
         if (healthPool <= 0) {
-            Destroy(GameObject.FindWithTag("Barricade"));
+						GameObject[] barricade = GameObject.FindGameObjectsWithTag("Barricade");
+						foreach (GameObject go in barricade) {
+							go.SetActive(false);
+						}
+						
+						/*
+						//GameObject[] explosion = GameObject.FindGameObjectsWithTag("Explosion");
+						foreach (GameObject go in explosion) {
+							go.SetActive(true);
+						}
+						*/
+						//Instantiate(explosion);
         }
     }
 }
