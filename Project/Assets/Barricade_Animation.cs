@@ -17,14 +17,11 @@ public class Barricade_Animation : MonoBehaviour
         attackMultiplier += 0.01f;
     }
 
-    void update(){
-        barricadeHealthSlider.value = healthPool;
-    }
-
     private void OnCollisionStay(Collision collision)
     {
 
         healthPool = healthPool - attackMultiplier;
+        barricadeHealthSlider.value = healthPool;
         if (healthPool <= 0)
 
         {

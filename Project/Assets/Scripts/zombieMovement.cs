@@ -19,6 +19,7 @@ public class zombieMovement : MonoBehaviour
         m_agent = GetComponent<NavMeshAgent>();
         m_target = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(UpdateZombie());
+        animator = GetComponent<Animator>();
     }
 
     private void OnDrawGizmos()
