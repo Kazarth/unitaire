@@ -8,24 +8,13 @@ public class Barricade_Animation : MonoBehaviour {
     public float currentCollisionCount = 0;
     private float attackMultiplier = 0;
     [SerializeField] Slider barricadeHealthSlider;
-		private GameObject[] explosion;
 		public GameObject effect;
-		public bool showEffect;
 		
 		public void Start() {
-			explosion = GameObject.FindGameObjectsWithTag("Explosion");
-			foreach (GameObject go in explosion) {
-				go.SetActive(false);
-			}
+			effect.SetActive(false);
 		}
 		
 		private void Update() {
-			if (showEffect) {
-				effect.SetActive(true);
-			} else {
-				effect.SetActive(false);
-			}
-			
       if (healthPool <= 0) {
 				GameObject[] barricade = GameObject.FindGameObjectsWithTag("Barricade");
 				foreach (GameObject go in barricade) {
@@ -45,4 +34,9 @@ public class Barricade_Animation : MonoBehaviour {
         healthPool = healthPool - attackMultiplier;
         barricadeHealthSlider.value = healthPool;
     }
+		
+		private void OnCollisionExit(Collision collision) {
+			currentCollisionCount--;
+			attackMultiplier -= 0.01f;
+		}
 }
