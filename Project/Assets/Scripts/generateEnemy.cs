@@ -15,7 +15,7 @@ public class generateEnemy : MonoBehaviour
 
 
 
-        void Start()
+     void Start()
 
         {
             StartCoroutine(generateEnemies());
@@ -30,6 +30,15 @@ public class generateEnemy : MonoBehaviour
                 enemySpawn();
             }
         }
+
+      public void decrementEnemyCount ()
+
+        {
+
+        enemyCounter -= 1;
+
+        }
+
 
         void enemySpawn()
 
