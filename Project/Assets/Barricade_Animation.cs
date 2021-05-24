@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Threading;
 
 public class Barricade_Animation : MonoBehaviour {
   public float healthPool = 100;
@@ -13,11 +12,11 @@ public class Barricade_Animation : MonoBehaviour {
   [SerializeField] Image image;
   [SerializeField] GameObject barricadeObject;
 	public GameObject effect;
-		
+
 	public void Start() {
 		effect.SetActive(false);
 	}
-		
+
 	private void Update() {
     if (healthPool <= 0) {
 			GameObject[] barricade = GameObject.FindGameObjectsWithTag("Barricade");
@@ -25,11 +24,11 @@ public class Barricade_Animation : MonoBehaviour {
 			foreach (GameObject go in barricade) {
 				go.SetActive(false);
 			}
-				
+
       //Destroy(GameObject.FindWithTag("Barricade"));
       gameOverCanvas.gameObject.SetActive(true);
       barricadeObject.SetActive(false);
-            
+
       for(float i = 0; i <= 1f; i += 0.001f){
         image.color = new Color(1, 1, 1, i);
         Debug.Log(i);
@@ -48,7 +47,7 @@ public class Barricade_Animation : MonoBehaviour {
     healthPool = healthPool - attackMultiplier;
     barricadeHealthSlider.value = healthPool;
   }
-		
+
 	private void OnCollisionExit(Collision collision) {
 		currentCollisionCount--;
 		attackMultiplier -= 0.01f;
