@@ -1677,7 +1677,7 @@ GameObject:
   - component: {fileID: 3363896103677412015}
   - component: {fileID: -168866465738406876}
   - component: {fileID: 6121158551557577353}
-  - component: {fileID: 4894421424764374240}
+  - component: {fileID: 1981348192399968775}
   m_Layer: 0
   m_Name: Zombie1
   m_TagString: Untagged
@@ -1783,7 +1783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dbd094e93a894f7a9ed0969b77dedf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &4894421424764374240
+--- !u!65 &1981348192399968775
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
