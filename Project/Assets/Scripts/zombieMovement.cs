@@ -46,6 +46,13 @@ public class zombieMovement : MonoBehaviour
             animator.SetTrigger("AttackTrigger");
         }
 
+        if (col.gameObject.tag == "Arrow")
+
+        {
+            animator.SetTrigger("ArrowTrigger");
+            m_agent.isStopped = true; 
+        }
+
 
     }
 
