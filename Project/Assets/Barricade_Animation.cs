@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Threading;
 
 public class Barricade_Animation : MonoBehaviour
 {
@@ -13,6 +12,10 @@ public class Barricade_Animation : MonoBehaviour
     [SerializeField] Canvas gameOverCanvas;
     [SerializeField] Image image;
     [SerializeField] GameObject barricadeObject;
+    private float fadeRate = 0.01f;
+    private float targetAlpha = 1f;
+
+    
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -37,9 +40,9 @@ public class Barricade_Animation : MonoBehaviour
     }
 
     private void fadeImage(){
-        for(float i = 0; i <= 1f; i += 0.001f){
+        Debug.Log("FadeImage lololol");
+        for(float i = 0; i <= 1.0f; i += Time.deltaTime){
             image.color = new Color(1, 1, 1, i);
-            Debug.Log(i);
         }
     }
 }
