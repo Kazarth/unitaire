@@ -46,7 +46,7 @@ public class zombieMovement : MonoBehaviour
             animator.SetTrigger("AttackTrigger");
         }
 
-        
+
     }
 
     IEnumerator UpdateZombie()
@@ -61,5 +61,3 @@ public class zombieMovement : MonoBehaviour
         }
     }
 }
-
-

@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Barricade_Animation : MonoBehaviour
 {
     public float healthPool = 100;
     public float currentCollisionCount = 0;
     private float attackMultiplier = 0;
+    [SerializeField] Slider barricadeHealthSlider;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -19,6 +21,7 @@ public class Barricade_Animation : MonoBehaviour
     {
 
         healthPool = healthPool - attackMultiplier;
+        barricadeHealthSlider.value = healthPool;
         if (healthPool <= 0)
 
         {
@@ -27,6 +30,3 @@ public class Barricade_Animation : MonoBehaviour
 
     }
 }
-
-
-
