@@ -1383,7 +1383,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 369627652}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c82caa5cb688461da74abb075daf866, type: 3}
   m_Name: 
@@ -1394,6 +1394,7 @@ MonoBehaviour:
   gameOverCanvas: {fileID: 0}
   image: {fileID: 0}
   barricadeObject: {fileID: 0}
+  effect: {fileID: 0}
 --- !u!1 &381674417
 GameObject:
   m_ObjectHideFlags: 0
@@ -1931,6 +1932,7 @@ MonoBehaviour:
   gameOverCanvas: {fileID: 1762877880}
   image: {fileID: 326079507}
   barricadeObject: {fileID: 440631181}
+  effect: {fileID: 850777867}
 --- !u!1 &618088069
 GameObject:
   m_ObjectHideFlags: 0
@@ -7347,11 +7349,11 @@ GameObject:
   - component: {fileID: 850777868}
   m_Layer: 0
   m_Name: Barricade destroyed
-  m_TagString: Untagged
+  m_TagString: Explosion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &850777868
 Transform:
   m_ObjectHideFlags: 0
@@ -7359,7 +7361,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 850777867}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 469.26303, y: 39.516186, z: 257.92578}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -19880,7 +19882,7 @@ GameObject:
   - component: {fileID: 1838285318}
   m_Layer: 0
   m_Name: Barricade front
-  m_TagString: Untagged
+  m_TagString: Barricade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
