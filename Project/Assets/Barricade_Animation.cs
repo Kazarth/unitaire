@@ -12,30 +12,36 @@ public class Barricade_Animation : MonoBehaviour {
   [SerializeField] Image image;
   [SerializeField] GameObject barricadeObject;
 	public GameObject effect;
+	private bool handleEnd;
+	private float alpha;
 
 	public void Start() {
 		effect.SetActive(false);
-    
+		handleEnd = false;
+		alpha = 0f;
 	}
 
 	private void Update() {
-    if (healthPool <= 0) {
+    if (healthPool <= 0 && alpha < 1.0f) {
+			alpha += 0.1f;
+      image.color = new Color(1, 1, 1, alpha);
+			//Debug.Log(alpha);
+    }
+		
+		if (healthPool <= 0 && !handleEnd) {
+			effect.SetActive(true);
+			
       GameObject[] barricade = GameObject.FindGameObjectsWithTag("Barricade");
-
 			foreach (GameObject go in barricade) {
 				go.SetActive(false);
 			}
-
-      //Destroy(GameObject.FindWithTag("Barricade"));
+			
       gameOverCanvas.gameObject.SetActive(true);
+			(gameObject.GetComponent(typeof(Collider)) as Collider).isTrigger = true;
       barricadeObject.SetActive(false);
 
-      for(float i = 0; i <= 1f; i += 0.001f){
-        image.color = new Color(1, 1, 1, i);
-      }
-
-			effect.SetActive(true);
-    }
+			handleEnd = true;
+		}
 	}
 
   private void OnCollisionEnter(Collision collision) {
