@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class scoreUpdate : MonoBehaviour
 {
 
     public float score = 0;
+    private float finalScore;
     public TextMeshProUGUI scoreDisplay;
-    //[SerializeField] Text killedAmount;
+    public bool gameOver = false;
+    public GameObject barricade;
+    public GameObject scoreUpdater; 
 
     // Start is called before the first frame update
     void Start()
@@ -22,15 +24,24 @@ public class scoreUpdate : MonoBehaviour
     void Update()
     {
         zombiesKilledUpdate();
+        setGameOver();
     }
 
     public void AddScore(){
-        float amount = Time.deltaTime;
-        score += amount;
+            if(!gameOver){
+            float amount = Time.deltaTime;
+            score += amount;
+        }
     }
 
     private void zombiesKilledUpdate(){
         AddScore();
-        scoreDisplay.text = score.ToString("F0");
+        scoreDisplay.text = score.ToString("F0");    
+    }
+    public void setGameOver(){
+        if(!barricade.activeSelf){
+            gameOver = true;
+            this.scoreUpdater.SetActive(false);
+        }
     }
 }
