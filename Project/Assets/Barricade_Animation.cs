@@ -15,11 +15,12 @@ public class Barricade_Animation : MonoBehaviour {
 
 	public void Start() {
 		effect.SetActive(false);
+    
 	}
 
 	private void Update() {
     if (healthPool <= 0) {
-			GameObject[] barricade = GameObject.FindGameObjectsWithTag("Barricade");
+      GameObject[] barricade = GameObject.FindGameObjectsWithTag("Barricade");
 
 			foreach (GameObject go in barricade) {
 				go.SetActive(false);
@@ -31,7 +32,6 @@ public class Barricade_Animation : MonoBehaviour {
 
       for(float i = 0; i <= 1f; i += 0.001f){
         image.color = new Color(1, 1, 1, i);
-        Debug.Log(i);
       }
 
 			effect.SetActive(true);
