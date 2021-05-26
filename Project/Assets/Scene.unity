@@ -1643,6 +1643,7 @@ MonoBehaviour:
   scoreDisplay: {fileID: 338644042}
   gameOver: 0
   barricade: {fileID: 598683742}
+  scoreUpdater: {fileID: 569342031}
 --- !u!4 &569342033
 Transform:
   m_ObjectHideFlags: 0
